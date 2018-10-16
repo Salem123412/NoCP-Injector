@@ -5,7 +5,7 @@
 #include <string>
 
 void closeProgram(int time, std::string msg) {
-	std::cout << "A problem occured..." << std::endl;
+	std::cout << "A problem occured: " << msg << std::endl;
 
 	Sleep(time);
 }
