@@ -1,3 +1,4 @@
 ﻿C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(391,5): warning MSB8028: The intermediate directory (Release\) contains files shared from another project (NoCP.vcxproj, RandoInjector.vcxproj).  This can lead to incorrect clean and rebuild behavior.
   Main.cpp
-  RandoInjector.vcxproj -> D:\Hax\Internal\Injector\Release\NoCPv2Injector.exe
+d:\hax\github\nocp-injector\randoinjector\main.cpp(48): warning C4715: 'openHandle': not all control paths return a value
+  RandoInjector.vcxproj -> D:\Hax\Github\NoCP-Injector\Release\NoCPv2Injector.exe
