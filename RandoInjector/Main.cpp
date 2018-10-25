@@ -17,7 +17,7 @@ inline bool exists(const std::string& DLLNAME) {
 }
 
 DWORD openHandle(char* processName) {
-	// Create our Handle
+	// Create a handle to our running processes
 	auto Handle = CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS, NULL);
 
 	// Get our ProcessEntry
@@ -28,12 +28,12 @@ DWORD openHandle(char* processName) {
 
 	// While there are multiple Processes, loop through them
 	while (Process32Next(Handle, &processEntry)) {
-		// Check if our Processes match
-		if (!strcmp(processEntry.szExeFile, processName)) {
+		// Check if our target process name matches our process name
+		if (strcmp(processEntry.szExeFile, processName) == 0) {
 			// Define our Process ID
 			auto processID = processEntry.th32ProcessID;
 
-			// Close our Handle
+			// Close the handle to our running processes
 			CloseHandle(Handle);
 
 			// Return our Process ID
@@ -41,9 +41,9 @@ DWORD openHandle(char* processName) {
 		}
 	}
 
-	// If we're here, our process isn't running
+	// If we're here, our target process isn't running
 	if (!Process32Next(Handle, &processEntry)) {
-		// Call our Close Program Function
+		// Close our program
 		closeProgram(1000, "Process isn't running!");
 	}
 }
